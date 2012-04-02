@@ -1,0 +1,34 @@
+.draggable {
+	border:1px solid #000;
+	width:100px;
+	height:100px;
+	background:red;
+	cursor:pointer;
+}
+.droppable {
+	border:1px solid #000;
+	width:200px;
+	height:200px;
+	background:yellow;
+}
+
+#draggable1 {
+	position:absolute;
+	top:400px;
+	left:100px;
+}
+#draggable2 {
+	position:absolute;
+	top:400px;
+	left:300px;
+}
+#droppable1 {
+	position:absolute;
+	top:300px;
+	right:100px;
+}
+#droppable2 {
+	position:absolute;
+	top:600px;
+	right:100px;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Drag &amp; Drop 2012-01-30</title>
+		
+		<!-- Library start -->
+		<script type="text/javascript" src="js/jindo.all.ns.js"></script>
+		<script type="text/javascript" src="js/jindo.Component.js"></script>
+		<script type="text/javascript" src="js/jindo.UIComponent.js"></script>
+		<!-- Library end -->
+		
+		<!-- SourceCode start -->
+		<link rel="stylesheet" href="css/style.css" type="text/css"/>
+		<script type="text/javascript" src="js/dny.js"></script>		
+		<script type="text/javascript" src="js/dny.Draggable.class.js"></script>
+		<script type="text/javascript" src="js/dny.Droppable.class.js"></script>
+		<!-- SourceCode end -->
+	</head>
+	<body>
+		<!-- SourceCode start -->
+		<div id="draggable1" class="draggable _draggable"></div>
+		<div id="draggable2" class="draggable _draggable"></div>
+		
+		<div id="droppable1" class="droppable _droppable"></div>
+		<div id="droppable2" class="droppable _droppable"></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var oDraggable1 = new dny.Draggable("draggable1").attach({
+				dragStart : function(oCustomEvent){
+					
+				},
+				dragging : function(oCustomEvent) {
+					var bIsMouseOver1 = oDroppable1.isMouseOverHere(oCustomEvent.aMousePosition.pageX, oCustomEvent.aMousePosition.pageY)
+					if(bIsMouseOver1){
+						oDroppable1.getDroppableElement().css({background:"blue"});
+					}else{
+						oDroppable1.getDroppableElement().css({background:"yellow"});
+					}
+					
+					var bIsMouseOver2 = oDroppable2.isMouseOverHere(oCustomEvent.aMousePosition.pageX, oCustomEvent.aMousePosition.pageY)
+					if(bIsMouseOver2){
+						oDroppable2.getDroppableElement().css({background:"blue"});
+					}else{
+						oDroppable2.getDroppableElement().css({background:"yellow"});
+					}
+				},
+				dragEnd : function(oCustomEvent){
+					var bIsMouseOver1 = oDroppable1.isMouseOverHere(oCustomEvent.aMousePosition.pageX, oCustomEvent.aMousePosition.pageY)
+					if(bIsMouseOver1){
+						alert("dropped");						
+					}
+					oDroppable1.getDroppableElement().css({background:"yellow"});
+					
+					var bIsMouseOver2 = oDroppable2.isMouseOverHere(oCustomEvent.aMousePosition.pageX, oCustomEvent.aMousePosition.pageY)
+					if(bIsMouseOver2){
+						alert("dropped");						
+					}
+					oDroppable2.getDroppableElement().css({background:"yellow"});
+				}
+			});
+			var oDraggable2 = new dny.Draggable("draggable2").attach({
+				dragStart : function(oCustomEvent){
+					
+				},
+				dragging : function(oCustomEvent) {
+					var bIsMouseOver1 = oDroppable1.isMouseOverHere(oCustomEvent.aMousePosition.pageX, oCustomEvent.aMousePosition.pageY)
+					if(bIsMouseOver1){
+						oDroppable1.getDroppableElement().css({background:"blue"});
+					}else{
+						oDroppable1.getDroppableElement().css({background:"yellow"});
+					}
+				},
+				dragEnd : function(oCustomEvent){
+					var bIsMouseOver1 = oDroppable1.isMouseOverHere(oCustomEvent.aMousePosition.pageX, oCustomEvent.aMousePosition.pageY)
+					if(bIsMouseOver1){
+						alert("dropped");						
+					}
+					oDroppable1.getDroppableElement().css({background:"yellow"});
+				}
+			});			
+			var oDroppable1 = new dny.Droppable("droppable1");
+			var oDroppable2 = new dny.Droppable("droppable2");
+		//]]>
+		</script>
+		<!-- SourceCode end -->
+	</body>
+</html>
